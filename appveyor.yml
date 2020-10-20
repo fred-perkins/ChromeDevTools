@@ -1,14 +1,16 @@
 # Great reference:  http://www.appveyor.com/docs/appveyor-yml
-
 version: 1.2.{build}
+image: Visual Studio 2019
 skip_tags: false
 configuration: Release
+
 assembly_info:
   patch: true
   file: '**\AssemblyInfo.*'
   assembly_version: '{version}'
   assembly_file_version: '{version}'
   assembly_informational_version: '{version}'
+
 dotnet_csproj:
   patch: true
   file: '**\*.csproj'
@@ -18,9 +20,17 @@ dotnet_csproj:
   assembly_version: '{version}'
   file_version: '{version}'
   informational_version: '{version}'
-build:
-  project: src\MasterDevs.ChromeDevTools.sln
-  verbosity: minimal
+
+before_build:
+  # Display .NET Core version
+  - cmd: dotnet --version
+  # Display minimal restore text
+  - cmd: dotnet restore src\MasterDevs.ChromeDevTools.sln --verbosity m
+
+build_script:
+  # output will be in ./src/bin/debug/netcoreapp1.1/publish
+  - cmd: dotnet publish src\MasterDevs.ChromeDevTools.sln
+
 artifacts:
 - path: 'MasterDevs.ChromeDevTools.{version}.nupkg'
 - path: 'src\ChromeDevTools\bin\Release\MasterDevs.ChromeDevTools.{version}.nupkg'
