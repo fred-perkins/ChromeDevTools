@@ -1,0 +1,14 @@
+﻿<Project Sdk="Microsoft.Net.SDK">
+    <PropertyGroup>
+        <TargetFrameworks>netcoreapp3.1</TargetFrameworks>
+        <OutputType>Exe</OutputType>
+    </PropertyGroup>
+    <ItemGroup>
+      <Compile Remove="Properties\**" />
+      <EmbeddedResource Remove="Properties\**" />
+      <None Remove="Properties\**" />
+    </ItemGroup>
+    <ItemGroup>
+      <ProjectReference Include="..\MasterDevs.ChromeDevTools\MasterDevs.ChromeDevTools.csproj" />
+    </ItemGroup>
+</Project>
