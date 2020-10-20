@@ -29,7 +29,7 @@ before_build:
 
 build_script:
   # output will be in ./src/bin/debug/netcoreapp1.1/publish
-  - cmd: dotnet publish src\MasterDevs.ChromeDevTools.sln
+  - cmd: dotnet publish src\MasterDevs.ChromeDevTools.sln --framework netstandard2.0
 
 artifacts:
 - path: 'MasterDevs.ChromeDevTools.{version}.nupkg'
