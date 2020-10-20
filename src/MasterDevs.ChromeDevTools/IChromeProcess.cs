@@ -9,10 +9,6 @@ namespace MasterDevs.ChromeDevTools
     {
         Uri RemoteDebuggingUri { get; }
 
-        Task<ChromeSessionInfo[]> GetSessionInfo();
-
-        Task<ChromeSessionInfo> StartNewSession();
-
         /// <summary>
         /// Invokes a local endpoint on the chrome debugging protocol.
         /// For example this could be used to get Protocol information from "/json/protocol/"
