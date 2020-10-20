@@ -32,5 +32,4 @@ build_script:
   - cmd: dotnet pack src\MasterDevs.ChromeDevTools.sln
 
 artifacts:
-- path: 'MasterDevs.ChromeDevTools.{version}.nupkg'
-- path: 'src\ChromeDevTools\bin\Release\MasterDevs.ChromeDevTools.{version}.nupkg'
+- path: 'src\**\*.nupkg'
