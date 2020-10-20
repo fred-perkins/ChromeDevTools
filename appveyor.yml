@@ -25,11 +25,11 @@ before_build:
   # Display .NET Core version
   - cmd: dotnet --version
   # Display minimal restore text
-  - cmd: dotnet restore src\MasterDevs.ChromeDevTools.sln --verbosity m --framework netstandard2.0
+  - cmd: dotnet restore src\MasterDevs.ChromeDevTools.sln --verbosity m 
 
 build_script:
   # output will be in ./src/bin/debug/netcoreapp1.1/publish
-  - cmd: dotnet publish src\MasterDevs.ChromeDevTools.sln --framework netstandard2.0
+  - cmd: dotnet publish src\MasterDevs.ChromeDevTools\MasterDevs.ChromeDevTools.csproj --framework netstandard2.0
 
 artifacts:
 - path: 'MasterDevs.ChromeDevTools.{version}.nupkg'
